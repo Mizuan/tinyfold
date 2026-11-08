@@ -53,8 +53,8 @@ export default function Privacy() {
                             Tinyfold is built with open-source libraries,
                             including pdf-lib (MIT) and pdf.js (Apache-2.0) for
                             PDFs, heic-to and libheif (LGPL-3.0) for iPhone
-                            photos, fflate (MIT) for ZIP files, and dnd-kit
-                            (MIT).
+                            photos, fflate (MIT) for ZIP files, uqr (MIT) for QR
+                            codes, and dnd-kit (MIT).
                         </p>
                         <p>
                             Tinyfold itself is open source under the MIT

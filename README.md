@@ -8,17 +8,21 @@ server only sends the app.
 
 ## Tools
 
-| Tool               | What it does                                                                                                                                                                                               |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Images to PDF**  | Turn photos and scans into a PDF. Reorder, rotate, choose A4, Letter or "fit image" pages and margins, with a live page preview. One PDF, or a PDF per image as a ZIP. JPEGs go in without re-compressing. |
-| **Merge PDFs**     | Combine PDFs, reorder them, pick pages per file (`1-3, 5, 8-`) and rotate a file. Locked PDFs are flagged rather than merged into garbled pages.                                                           |
-| **Split PDF**      | Pull chosen pages into one PDF, or split into a PDF per page or every few pages, named after their pages.                                                                                                  |
-| **Organise PDF**   | Every page as a card: reorder, rotate and delete pages, even across several PDFs, with undo and reset.                                                                                                     |
-| **Compress PDF**   | Shrink the photos inside a PDF (Strong, Balanced or Light) and clear out leftover data. Never hands back a bigger file.                                                                                    |
-| **PDF to images**  | Save pages as JPG or PNG at screen, standard or print resolution.                                                                                                                                          |
-| **Convert images** | HEIC, JPG, PNG, WebP and more into JPG, PNG or WebP, with quality and size options. Converting removes hidden photo details such as GPS location.                                                          |
-| **Shrink images**  | Get photos under a size limit (like 1 MB for an upload form): the best quality that fits, smaller only when needed.                                                                                        |
-| **Merge images**   | Join images stacked, in a row or in a grid, with spacing, background colour, JPG or PNG output and a live preview.                                                                                         |
+| Tool                     | What it does                                                                                                                                                                                               |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Images to PDF**        | Turn photos and scans into a PDF. Reorder, rotate, choose A4, Letter or "fit image" pages and margins, with a live page preview. One PDF, or a PDF per image as a ZIP. JPEGs go in without re-compressing. |
+| **Merge PDFs**           | Combine PDFs, reorder them, pick pages per file (`1-3, 5, 8-`) and rotate a file. Locked PDFs are flagged rather than merged into garbled pages.                                                           |
+| **Split PDF**            | Pull chosen pages into one PDF, or split into a PDF per page or every few pages, named after their pages.                                                                                                  |
+| **Organise PDF**         | Every page as a card: reorder, rotate and delete pages, even across several PDFs, with undo and reset.                                                                                                     |
+| **Compress PDF**         | Shrink the photos inside a PDF (Strong, Balanced or Light) and clear out leftover data. Never hands back a bigger file.                                                                                    |
+| **PDF to images**        | Save pages as JPG or PNG at screen, standard or print resolution.                                                                                                                                          |
+| **Convert images**       | HEIC, JPG, PNG, WebP and more into JPG, PNG or WebP, with quality and size options. Converting removes hidden photo details such as GPS location.                                                          |
+| **Shrink images**        | Get photos under a size limit (like 1 MB for an upload form): the best quality that fits, smaller only when needed.                                                                                        |
+| **Resize images**        | Set a width or height, fit images inside a box or scale them by a percentage. Keeps each format or saves as JPG, PNG or WebP.                                                                              |
+| **Crop images**          | Drag a crop box freely or to a shape like 1:1, 4:3, 16:9 or A4, per image or the same crop for all.                                                                                                        |
+| **Remove photo details** | Take location, camera and dates out of photos without re-compressing them. The picture, its colours and its orientation stay as they were.                                                                 |
+| **Merge images**         | Join images stacked, in a row or in a grid, with spacing, background colour, JPG or PNG output and a live preview.                                                                                         |
+| **QR code generator**    | Make a QR code for a link, text, Wi-Fi or an email, in your colours, as PNG or SVG.                                                                                                                        |
 
 All image tools read iPhone **HEIC** photos and respect the camera's
 orientation, so sideways phone pictures come out upright.
@@ -29,7 +33,8 @@ orientation, so sideways phone pictures come out upright.
   responsive: [pdf-lib](https://pdf-lib.js.org) for PDFs, `OffscreenCanvas`
   for images, [fflate](https://github.com/101arrowz/fflate) for ZIPs,
   [heic-to](https://github.com/hoppergee/heic-to) (libheif in WebAssembly) for
-  HEIC and [pdf.js](https://mozilla.github.io/pdf.js/) for PDF thumbnails.
+  HEIC, [pdf.js](https://mozilla.github.io/pdf.js/) for PDF thumbnails and
+  [uqr](https://github.com/unjs/uqr) for QR codes.
 - The large libraries (HEIC decoder, pdf.js) load only when a tool needs them.
 - Layout maths (page placement, merge layouts, output sizes, page ranges) lives
   in small pure modules with unit tests. The previews use the same code as the
@@ -87,7 +92,7 @@ resources/js/
   tools/registry.ts     the tool list that drives the home page
   components/tools/     shared tool UI: shell, file grid, actions, controls
   hooks/                use-file-list (generic) and use-image-list
-  lib/                  files, rotation, workers, file names
+  lib/                  files, rotation, workers, file names, render (images at a size)
 app/
   Http/Middleware/AddSecurityHeaders.php
   Console/Commands/     app:create-admin, app:backup-database
@@ -115,6 +120,6 @@ database outside the site, nightly backups) is described in
 
 Tinyfold is open source under the [MIT License](LICENSE).
 
-The libraries it uses keep their own licenses: pdf-lib, fflate and dnd-kit
+The libraries it uses keep their own licenses: pdf-lib, fflate, dnd-kit and uqr
 (MIT), pdf.js (Apache-2.0), and heic-to with libheif (LGPL-3.0), which is loaded
 unmodified as a separate WebAssembly file.
