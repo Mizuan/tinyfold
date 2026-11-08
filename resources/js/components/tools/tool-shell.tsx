@@ -1,9 +1,8 @@
-import { Link } from '@inertiajs/react';
-import { ArrowLeft, ImagePlus, Lock } from 'lucide-react';
+import { ImagePlus } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
+import ToolHeader from '@/components/tools/tool-header';
 import { cn } from '@/lib/utils';
-import { home } from '@/routes';
 
 /**
  * The frame every file tool shares: header, a drop/paste target for the whole
@@ -111,23 +110,7 @@ export default function ToolShell({
                     hasFiles && 'pb-32 lg:pb-12',
                 )}
             >
-                <Link
-                    href={home()}
-                    className="-ml-2 inline-flex h-11 items-center gap-1.5 rounded-full px-2 text-sm font-medium text-muted-foreground hover:text-foreground"
-                >
-                    <ArrowLeft className="size-4" />
-                    All tools
-                </Link>
-                <h1 className="mt-2 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
-                    {title}
-                </h1>
-                <p className="mt-3 max-w-2xl text-pretty text-muted-foreground sm:text-lg">
-                    {description}
-                </p>
-                <p className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-brand-ink">
-                    <Lock className="size-3.5" />
-                    Your files never leave this device.
-                </p>
+                <ToolHeader title={title} description={description} />
 
                 {hasFiles ? (
                     <div className="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start lg:gap-8">

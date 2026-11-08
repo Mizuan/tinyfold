@@ -108,6 +108,13 @@ class PublicPagesTest extends TestCase
             ->assertInertia(fn (Assert $page) => $page->component('tools/remove-photo-details'));
     }
 
+    public function test_the_qr_code_tool_is_public()
+    {
+        $this->get(route('tools.qr-code'))
+            ->assertOk()
+            ->assertInertia(fn (Assert $page) => $page->component('tools/qr-code'));
+    }
+
     public function test_public_registration_is_disabled()
     {
         $this->get('/register')->assertNotFound();
