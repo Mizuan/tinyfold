@@ -8,6 +8,7 @@ import {
     ImageDown,
     Images,
     LayoutGrid,
+    MapPinOff,
     Scaling,
     Scissors,
     Shrink,
@@ -21,6 +22,7 @@ import {
     mergePdfs,
     organizePdf,
     pdfToImages,
+    removePhotoDetails,
     resizeImages,
     shrinkImages,
     splitPdf,
@@ -129,6 +131,15 @@ export const tools: Tool[] = [
             'Cut out the part you want, freely or to a shape like square.',
         icon: Crop,
         href: cropImages.url(),
+    },
+    {
+        slug: 'remove-photo-details',
+        group: 'image',
+        title: 'Remove photo details',
+        description:
+            'Take out location, camera and date before you share a photo.',
+        icon: MapPinOff,
+        href: removePhotoDetails.url(),
     },
     {
         slug: 'merge-images',

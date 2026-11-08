@@ -101,6 +101,13 @@ class PublicPagesTest extends TestCase
             ->assertInertia(fn (Assert $page) => $page->component('tools/crop-images'));
     }
 
+    public function test_the_remove_photo_details_tool_is_public()
+    {
+        $this->get(route('tools.remove-photo-details'))
+            ->assertOk()
+            ->assertInertia(fn (Assert $page) => $page->component('tools/remove-photo-details'));
+    }
+
     public function test_public_registration_is_disabled()
     {
         $this->get('/register')->assertNotFound();
