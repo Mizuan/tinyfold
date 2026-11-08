@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import {
     ArrowRightLeft,
+    Crop,
     FileImage,
     Files,
     FileOutput,
@@ -14,6 +15,7 @@ import {
 import {
     compressPdf,
     convertImages,
+    cropImages,
     imagesToPdf,
     mergeImages,
     mergePdfs,
@@ -118,6 +120,15 @@ export const tools: Tool[] = [
             'Set a width or height, fit a box, or scale by a percentage.',
         icon: Scaling,
         href: resizeImages.url(),
+    },
+    {
+        slug: 'crop-images',
+        group: 'image',
+        title: 'Crop images',
+        description:
+            'Cut out the part you want, freely or to a shape like square.',
+        icon: Crop,
+        href: cropImages.url(),
     },
     {
         slug: 'merge-images',

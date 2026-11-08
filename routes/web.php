@@ -10,6 +10,7 @@ Route::inertia('convert-images', 'tools/convert-images')->name('tools.convert-im
 Route::inertia('merge-images', 'tools/merge-images')->name('tools.merge-images');
 Route::inertia('shrink-images', 'tools/shrink-images')->name('tools.shrink-images');
 Route::inertia('resize-images', 'tools/resize-images')->name('tools.resize-images');
+Route::inertia('crop-images', 'tools/crop-images')->name('tools.crop-images');
 Route::inertia('merge-pdfs', 'tools/merge-pdfs')->name('tools.merge-pdfs');
 Route::inertia('compress-pdf', 'tools/compress-pdf')->name('tools.compress-pdf');
 Route::inertia('pdf-to-images', 'tools/pdf-to-images')->name('tools.pdf-to-images');
