@@ -7,6 +7,7 @@ import {
     ImageDown,
     Images,
     LayoutGrid,
+    Scaling,
     Scissors,
     Shrink,
 } from 'lucide-react';
@@ -18,6 +19,7 @@ import {
     mergePdfs,
     organizePdf,
     pdfToImages,
+    resizeImages,
     shrinkImages,
     splitPdf,
 } from '@/routes/tools';
@@ -107,6 +109,15 @@ export const tools: Tool[] = [
             'Get photos under a size limit, like 1 MB for an upload form.',
         icon: ImageDown,
         href: shrinkImages.url(),
+    },
+    {
+        slug: 'resize-images',
+        group: 'image',
+        title: 'Resize images',
+        description:
+            'Set a width or height, fit a box, or scale by a percentage.',
+        icon: Scaling,
+        href: resizeImages.url(),
     },
     {
         slug: 'merge-images',

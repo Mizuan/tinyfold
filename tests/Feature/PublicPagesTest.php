@@ -87,6 +87,13 @@ class PublicPagesTest extends TestCase
             ->assertInertia(fn (Assert $page) => $page->component('tools/organize-pdf'));
     }
 
+    public function test_the_resize_images_tool_is_public()
+    {
+        $this->get(route('tools.resize-images'))
+            ->assertOk()
+            ->assertInertia(fn (Assert $page) => $page->component('tools/resize-images'));
+    }
+
     public function test_public_registration_is_disabled()
     {
         $this->get('/register')->assertNotFound();

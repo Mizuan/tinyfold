@@ -34,6 +34,18 @@ export function outputSize(
     };
 }
 
+/**
+ * The format that keeps an image as it was: JPG, PNG and WebP stay as they
+ * are, iPhone photos become JPG and anything else becomes PNG.
+ */
+export function keepFormat(name: string, type: string, webp = true): Format {
+    if (/\.(heic|heif|avif)$/i.test(name) || type === 'image/jpeg') {
+        return 'jpg';
+    }
+
+    return type === 'image/webp' && webp ? 'webp' : 'png';
+}
+
 const support = new Map<string, Promise<boolean>>();
 
 /**

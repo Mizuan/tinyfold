@@ -9,9 +9,20 @@ export function withExtension(
     extension: string,
     fallback = 'file',
 ): string[] {
+    return withExtensions(
+        names.map((name) => [name, extension]),
+        fallback,
+    );
+}
+
+/** As `withExtension`, with each file's own new extension. */
+export function withExtensions(
+    files: [name: string, extension: string][],
+    fallback = 'file',
+): string[] {
     const used = new Set<string>();
 
-    return names.map((name, index) => {
+    return files.map(([name, extension], index) => {
         const base = safeFileName(
             name.replace(/\.[^.]+$/, ''),
             `${fallback}-${index + 1}`,

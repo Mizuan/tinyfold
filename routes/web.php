@@ -9,6 +9,7 @@ Route::inertia('images-to-pdf', 'tools/images-to-pdf')->name('tools.images-to-pd
 Route::inertia('convert-images', 'tools/convert-images')->name('tools.convert-images');
 Route::inertia('merge-images', 'tools/merge-images')->name('tools.merge-images');
 Route::inertia('shrink-images', 'tools/shrink-images')->name('tools.shrink-images');
+Route::inertia('resize-images', 'tools/resize-images')->name('tools.resize-images');
 Route::inertia('merge-pdfs', 'tools/merge-pdfs')->name('tools.merge-pdfs');
 Route::inertia('compress-pdf', 'tools/compress-pdf')->name('tools.compress-pdf');
 Route::inertia('pdf-to-images', 'tools/pdf-to-images')->name('tools.pdf-to-images');

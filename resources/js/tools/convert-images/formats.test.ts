@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { MAX_PIXELS, outputSize } from './formats';
+import { keepFormat, MAX_PIXELS, outputSize } from './formats';
 
 describe('outputSize', () => {
     it('keeps the size when there is no limit and it fits', () => {
@@ -29,5 +29,22 @@ describe('outputSize', () => {
 
         expect(width * height).toBeLessThanOrEqual(MAX_PIXELS);
         expect(width / height).toBeCloseTo(8000 / 6000, 2);
+    });
+});
+
+describe('keepFormat', () => {
+    it('keeps JPG, PNG and WebP', () => {
+        expect(keepFormat('a.jpg', 'image/jpeg')).toBe('jpg');
+        expect(keepFormat('a.png', 'image/png')).toBe('png');
+        expect(keepFormat('a.webp', 'image/webp')).toBe('webp');
+    });
+
+    it('saves iPhone photos as JPG, even once decoded to PNG', () => {
+        expect(keepFormat('IMG_1.HEIC', 'image/png')).toBe('jpg');
+    });
+
+    it('uses PNG for other formats and when WebP cannot be saved', () => {
+        expect(keepFormat('a.gif', 'image/gif')).toBe('png');
+        expect(keepFormat('a.webp', 'image/webp', false)).toBe('png');
     });
 });
