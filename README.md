@@ -110,3 +110,11 @@ The live site runs on Laravel Forge behind Cloudflare, and pushes to `main`
 deploy automatically. The server setup (private Node, PHP 8.4, the SQLite
 database outside the site, nightly backups) is described in
 [`deploy/README.md`](deploy/README.md).
+
+## License
+
+Tinyfold is open source under the [MIT License](LICENSE).
+
+The libraries it uses keep their own licenses: pdf-lib, fflate and dnd-kit
+(MIT), pdf.js (Apache-2.0), and heic-to with libheif (LGPL-3.0), which is loaded
+unmodified as a separate WebAssembly file.

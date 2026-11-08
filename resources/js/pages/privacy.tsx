@@ -56,6 +56,18 @@ export default function Privacy() {
                             photos, fflate (MIT) for ZIP files, and dnd-kit
                             (MIT).
                         </p>
+                        <p>
+                            Tinyfold itself is open source under the MIT
+                            licence, so anyone can check how it handles files.
+                            The code is on{' '}
+                            <a
+                                href="https://github.com/Mizuan/tinyfold"
+                                className="font-medium text-foreground underline underline-offset-4"
+                            >
+                                GitHub
+                            </a>
+                            .
+                        </p>
                     </section>
                 </div>
             </article>
